@@ -2,6 +2,7 @@
   $padding: 8px;
   &-list {
     @include flexbox(start);
+    margin-left: -#{$padding};
   }
   &-item {
     margin-right: 24px - ($padding * 2);
