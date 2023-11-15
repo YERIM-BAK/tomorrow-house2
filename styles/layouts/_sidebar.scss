@@ -1,13 +1,30 @@
 .sidebar {
+  $sidebar-width: 240px;
+
+  // @include noscrollbar;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $sidebar-level;
   width: 240px;
+  height: 100vh;
   padding: 32px 20px;
+  overflow-y: auto;
   background-color: $white;
+  transform: translate3d(-#{$sidebar-width}, 0, 0);
+  transition: transform 300ms ease-in-out;
+  overscroll-behavior: contain;
+
+  &.is-active {
+    transform: translate3d(0, 0, 0);
+  }
 
   &-header {
     padding: 0 12px;
 
     .logo {
       @include flexbox(start);
+
       a {
         display: block;
       }
@@ -25,8 +42,8 @@
     @include flexbox(start);
     height: 88px;
   }
+
   &-user {
-    // padding: 32px 0;
     a {
       @include flexbox(start);
       @include text-style(14, $primary);
@@ -41,16 +58,14 @@
     }
 
     .username {
+      // @include truncate;
       flex-grow: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
     }
   }
 
   &-auth {
     @include flexbox(between);
-    padding: 24px 0;
+    // padding: 24px 0;
 
     a {
       width: 84px;
@@ -67,7 +82,7 @@
     }
   }
 
-  &-user-name {
+  &-user-menu {
     margin-top: 16px;
 
     .user-menu-item {
