@@ -7,6 +7,15 @@
   height: 100vh;
   padding: 12px 0;
   background-color: $white;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 300ms ease-in-out;
+
+  // display는 transition 안먹음
+  // transition: width, height, padding, margin, border, top, right, bottom, left transition으로 할 경우 브라우저가 힘들어함 사용 지양.
+
+  &.is-active {
+    transform: translate3d(0, 0, 0);
+  }
 
   &-header {
     margin-bottom: 20px;
